@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <!--CHANDAN -->
+
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "plugin/styles_home.css" %}">
+
+    <!-- for login form-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- for tagline animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+        
+                
+    <div class="container">
+
+        <div class="fronttext">
+            <h1 class="name">CodeChef DYPIU Chapter</h1>
+            <h3 class="ml3">Powered by Data Structures and Algorithms</h3>
+        </div>
+        
+                   {% if user.is_authenticated %}  
+                        <h2>Hello, {{user.first_name}}</h2>       
+                      <button><a class="example" href = "{% url 'logout' %}">Logout</a>        </button>     
+                    {% else %}      
+       
+                         <center><button><a class="example" href = "codechef_management_app/register"> Register </a> </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button><a class="example" href = "codechef_management_app/login"> Login </a></button>
+</center>
+                    {% endif %}
+
+
+
+        
+        <div class="footer" style="margin: 20px;">
+            <center>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 13px; color: #797979;">©CodeChef DYPIU 2021</p>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 13px; color: #797979;">All rights reserved</p>
+            </center>
+            
+        </div>
+
+    </div>
+    <script src="{% static "/plugin/animate.js" %}"></script>
+</body>
+</html>

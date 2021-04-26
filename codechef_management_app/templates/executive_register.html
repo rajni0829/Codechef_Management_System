@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Registration</title>
+  </head>
+
+  <body>
+    <form action="executive_register" method="post">
+      {% csrf_token %}
+
+  <body>
+      <div class="container" >
+    <form action="executive_register" method="post">
+      {% csrf_token %}
+<br>
+      <input
+        type="text"
+        name="first_name"
+        placeholder="First Name"
+        required
+      /><br /><br>
+      <br /><br>
+      <input
+        type="text"
+        name="last_name"
+        placeholder="Last Name"
+        required
+      /><br />
+      <input type="email" name="email" placeholder="Email" required /><br />
+    <br /><br>
+      <input
+        type="text"
+        name="codechef_id"
+        placeholder="Codechef_id"
+        required
+      />
+
+      <br /><br>
+
+<input type="text" name="username" placeholder="username" required/> <br><br>
+
+      <input type ="text" name="prn" placeholder="Prn_no" required /><br /><br>
+      <input
+        type="password"
+        name="password1"
+        placeholder="Password"
+        required
+      /><br />
+     <br /><br>
+      <input
+        type="password"
+        name="password2"
+        placeholder="Confirm Password"
+        required
+      /><br />
+      <input type="Submit" value="Register" />
+    </form>
+
+     <br /><br>
+    </form>
+</div>
+    <div>
+      {% for message in messages %}
+      <h3> {{message}} </h3>
+      {% endfor %}
+    </div>
+    </div>
+  </body>
+</html>
