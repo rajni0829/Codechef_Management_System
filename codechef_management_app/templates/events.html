@@ -33,12 +33,13 @@
       {% else %}
 
       <center>
+      <div>
         <button>
           <a class="example" href="codechef_management_app/register">
             Register
           </a>
-        </button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        </button> </div>
+        
         <button>
           <a class="example" href="codechef_management_app/login"> Login </a>
         </button>
@@ -47,18 +48,19 @@
     </div>
 
     <br />
+ {% if user.is_superuser %}
 
-    <div>
+    <div>  
       <button>
         <a href="event_form"> Add Events </a>
       </button>
     </div>
-
     <div>
       <button>
         <a href="executive_register"> Add Executives </a>
       </button>
     </div>
+    {% endif %}
 
     <table class="center">
       <tr>
