@@ -28,6 +28,8 @@ urlpatterns = [
     path("codechef_management_app/codechef_management_app/logout",views.logoutt,name="logout"),
     path("codechef_management_app/events",views.events,name="events" ),
     path("codechef_management_app/executive_register",views.executive_register,name="executive_register" ),
+    path("codechef_management_app/event_form",views.event_form,name="event_form" ),
+
 
 
 

@@ -10,22 +10,78 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Events</title>
+    <style>
+      th,
+      td {
+        border: 2px black solid;
+      }
+
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
 
-  <body><br>
-         <h2>Welcome to Events</h2> 
-<div >
-         {% if user.is_authenticated %}  
-              <h2>Hello, {{user.first_name}}</h2>       
-            <button><a class="example" href = "{% url 'logout' %}">Logout</a>        </button>     
-          {% else %}      
-       
-                         <center><button><a class="example" href = "codechef_management_app/register"> Register </a> </button> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <button><a class="example" href = "codechef_management_app/login"> Login </a></button>
-</center>
-                    {% endif %}
-</div >
+  <body>
+    <br />
+    <center><h2>Welcome to Events</h2></center>
+    <div>
+      {% if user.is_authenticated %}
+      <h2>Hello, {{user.first_name}}</h2>
+      <button><a class="example" href="{% url 'logout' %}">Logout</a></button>
+      {% else %}
 
+      <center>
+        <button>
+          <a class="example" href="codechef_management_app/register">
+            Register
+          </a>
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button>
+          <a class="example" href="codechef_management_app/login"> Login </a>
+        </button>
+      </center>
+      {% endif %}
+    </div>
+
+    <br />
+
+    <div>
+      <button>
+        <a href="event_form"> Add Events </a>
+      </button>
+    </div>
+
+    <div>
+      <button>
+        <a href="executive_register"> Add Executives </a>
+      </button>
+    </div>
+
+    <table class="center">
+      <tr>
+        <th>Event ID</th>
+        <th>Event Title</th>
+        <th>Event Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+      {% if eve %} {% for e in eve %}
+
+      <tr>
+        <td>{{ e.event_id }}</td>
+
+        <td>{{ e.title }}</td>
+
+        <td>{{ e.description}}</td>
+
+        <td>{{ e.start_date}}</td>
+
+        <td>{{ e.end_date}}</td>
+      </tr>
+      {% endfor %} {% endif %}
+    </table>
   </body>
-
-  </html>
+</html>
