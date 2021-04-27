@@ -33,13 +33,14 @@
       {% else %}
 
       <center>
-      <div>
-        <button>
-          <a class="example" href="codechef_management_app/register">
-            Register
-          </a>
-        </button> </div>
-        
+        <div>
+          <button>
+            <a class="example" href="codechef_management_app/register">
+              Register
+            </a>
+          </button>
+        </div>
+
         <button>
           <a class="example" href="codechef_management_app/login"> Login </a>
         </button>
@@ -48,32 +49,50 @@
     </div>
 
     <br />
- {% if user.is_superuser %}
+    {% if user.is_superuser %}
 
-    <div>  
+    <div>
       <button>
         <a href="event_form"> Add Events </a>
       </button>
     </div>
     <div>
+
       <button>
         <a href="executive_register"> Add Executives </a>
       </button>
     </div>
-    {% endif %}
+    {% endif %} {% if user.is_staff %}
 
-
- {% if user.is_staff %}
-    <div>  
+    <div>
       <button>
         <a href="event_form"> Add Events </a>
       </button>
+    </div><br>
+
+    <div>
+      <button>
+        <a class="example" href="event_del"> Delete Event </a>
+      </button>
+    </div><br><br>
+
+    <div>
+      <button>
+        <a class="example" href="executive_del"> Delete Executives </a>
+      </button>
     </div>
+
+    <div>
+      <button>
+        <a class="example" href="executive_del"> Delete Participates </a>
+      </button>
+    </div>
+
+
     {% endif %}
 
     <table class="center">
       <tr>
-   
         <th>Event Title</th>
         <th>Event Description</th>
         <th>Start Date</th>
@@ -82,7 +101,6 @@
       {% if eve %} {% for e in eve %}
 
       <tr>
-
         <td>{{ e.title }}</td>
 
         <td>{{ e.description}}</td>

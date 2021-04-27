@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from codechef_management_app.models import Events
+from django.db import connection
 User = get_user_model()
 
 
@@ -116,3 +117,30 @@ def event_form(request):
 
     else:
         return render(request,"event_form.html")
+
+# def register(request):
+#     regis = User.objects.all()
+#     print(regis)
+#     print(connection.queries)
+#     return render(request,'register.html',{'data':regis})
+
+
+
+def event_del(request): 
+    if request.method == "POST":
+        event_id = request.POST['title']
+        Events.objects.filter(event_id=event_id).delete()
+        # eventss = Events.objects.delete(event_id=event_id)
+        return redirect('events')
+    else:
+        return render(request,"event_del.html")
+
+
+def executive_del(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        User.objects.filter(username=username).delete()
+        # eventss = Events.objects.delete(event_id=event_id)
+        return redirect('events')
+    else:
+        return render(request,"executive_del.html")

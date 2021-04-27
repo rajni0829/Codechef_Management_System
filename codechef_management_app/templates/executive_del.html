@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,30 +17,16 @@
 
   <body>
       <div class="container" >
-    <form action="event_form" method="post">
+    <form action="executive_del" method="post">
       {% csrf_token %}
 <br>
-      
       <input
         type="text"
-        name="title"
-        placeholder="Event Name"
+        name="username"
+        placeholder="User Name"
         required
-      /><br /><br>
-      <input type="text" name="description" placeholder="Event Description" required />
-    <br /><br>
-      <input
-        type="text"
-        name="start_date"
-        placeholder="Start Date"
-        required
-      />
-
-      <br /><br>
-<input type="text" name="end_date" placeholder="End Date" required/> 
-
-<br /><br />
-      <input type="Submit" value="Register" />
+      /><br />
+      <input type="Submit" value="Delete" />
     </form>
 
      <br />
@@ -52,4 +39,3 @@
     </div>
   </body>
 </html>
-

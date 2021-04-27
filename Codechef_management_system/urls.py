@@ -29,6 +29,8 @@ urlpatterns = [
     path("codechef_management_app/events",views.events,name="events" ),
     path("codechef_management_app/executive_register",views.executive_register,name="executive_register" ),
     path("codechef_management_app/event_form",views.event_form,name="event_form" ),
+    path("codechef_management_app/event_del",views.event_del,name="event_del" ),
+    path("codechef_management_app/executive_del",views.executive_del,name="executive_del" ),
 
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
