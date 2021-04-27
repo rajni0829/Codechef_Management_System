@@ -62,9 +62,22 @@
     </div>
     {% endif %}
 
+
+ {% if user.is_staff %}
+    <div>  
+      <button>
+        <a href="event_form"> Add Events </a>
+      </button>
+    </div>
+    {% endif %}
+
+
+
+
+
     <table class="center">
       <tr>
-        <th>Event ID</th>
+   
         <th>Event Title</th>
         <th>Event Description</th>
         <th>Start Date</th>
@@ -73,7 +86,6 @@
       {% if eve %} {% for e in eve %}
 
       <tr>
-        <td>{{ e.event_id }}</td>
 
         <td>{{ e.title }}</td>
 

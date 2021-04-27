@@ -31,7 +31,5 @@ urlpatterns = [
     path("codechef_management_app/event_form",views.event_form,name="event_form" ),
 
 
-
-
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 
