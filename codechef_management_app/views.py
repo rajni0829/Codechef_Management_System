@@ -103,7 +103,6 @@ def events(request):
     return render(request,'events.html',{'eve':event})
 
 
-
 def event_form(request): 
     if request.method == "POST":
         title = request.POST['title']
