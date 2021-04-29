@@ -1,41 +1,27 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
-    />
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <title>Event Form</title>
-  </head>
-
-
-
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "plugin/events.css" %}">
+    
+   <title>Delete Event</title>
+</head>
+<body>
       <div class="container" >
-    <form action="event_del" method="post">
-      {% csrf_token %}
-<br>
-      <input
-        type="text"
-        name="title"
-        placeholder="Event Name"
-        required
-      /><br />
-      <input type="Submit" value="Delete" />
-    </form>
-
-     <br />
-</div>
-    <div>
-      {% for message in messages %}
-      <h3> {{message}} </h3>
-      {% endfor %}
-    </div>
-    </div>
-  </body>
+        <h1 class="addevt">Delete Events</h1>
+        <form action="event_del" method="post">
+            {% csrf_token %}
+            <input class="inputbox" type="text" name="title" placeholder="Event Name" required/>
+            <input class="submitbtn" type="Submit" value="Delete"/>
+        </form>
+        <div>
+          {% for message in messages %}
+          <h3> {{message}} </h3>
+          {% endfor %}
+        </div>
+      </div>
+</body>
 </html>
