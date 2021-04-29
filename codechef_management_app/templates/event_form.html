@@ -1,55 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
-    />
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <title>Event Form</title>
-  </head>
-
-
-
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "plugin/events.css" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Add Event</title>
+</head>
+<body>
       <div class="container" >
-    <form action="event_form" method="post">
-      {% csrf_token %}
-<br>
-      
-      <input
-        type="text"
-        name="title"
-        placeholder="Event Name"
-        required
-      /><br /><br>
-      <input type="text" name="description" placeholder="Event Description" required />
-    <br /><br>
-      <input
-        type="text"
-        name="start_date"
-        placeholder="Start Date"
-        required
-      />
+        <a href="./demo.html" style="text-decoration: none;">
+          <h1 class="name">CodeChef DYPIU Chapter</h1>
+        </a>
+        <h1 class="addevt">Add New Event</h1>
+        <form action="event_form" method="post">
+            {% csrf_token %}
+            <input class="inputbox" type="text" name="title" placeholder="Event Name" required/>
+            <input class="inputbox" type="text" name="description" placeholder="Event Description" required/>
+            <input class="inputbox" type="text" name="start_date" placeholder="Start Date" required/>
+            <input class="inputbox" type="text" name="end_date" placeholder="End Date" required/> 
+            <input class="submitbtn" type="Submit" value="Add event"/>
+        </form>
+        
+        <div>
+          {% for message in messages %}
+          <h3> {{message}} </h3>
+          {% endfor %}
+        </div>
 
-      <br /><br>
-<input type="text" name="end_date" placeholder="End Date" required/> 
-
-<br /><br />
-      <input type="Submit" value="Register" />
-    </form>
-
-     <br />
-</div>
-    <div>
-      {% for message in messages %}
-      <h3> {{message}} </h3>
-      {% endfor %}
-    </div>
-    </div>
-  </body>
+        <div class="footer" style="margin-top: 250px;">
+          <center style="line-height: 8px;">
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">Proudly made my Rajni Dhruv & Chandan
+            </p>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">©CodeChef DYPIU 2021</p>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">All rights reserved</p>
+          </center>
+        </div>
+      </div>
+</body>
 </html>
 
