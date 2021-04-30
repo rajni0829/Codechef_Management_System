@@ -119,11 +119,10 @@ def event_form(request):
         return render(request,"event_form.html")
 
 
-
 def event_del(request): 
     if request.method == "POST":
-        event_id = request.POST['title']
-        Events.objects.filter(event_id=event_id).delete()
+        title = request.POST['title']
+        Events.objects.filter(title=title).delete()
         # eventss = Events.objects.delete(event_id=event_id)
         return redirect('events')
     else:

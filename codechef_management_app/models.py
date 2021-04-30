@@ -15,5 +15,5 @@ class Events(models.Model):
 
 class User(AbstractUser):
     prn = models.CharField(max_length=50,null=True,blank=True)
-    codechef_id = models.CharField(max_length=10,null=True,blank=True)
+    codechef_id = models.CharField(max_length=30,null=True,blank=True)
     event_id = models.ForeignKey(Events,on_delete=CASCADE,null=True,blank=True)
