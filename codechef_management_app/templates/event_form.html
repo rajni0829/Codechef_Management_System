@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static "plugin/events.css" %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Add Event</title>
+  </head>
+  <body>
+    <div class="container">
+      <a href="{% url 'demo' %}" style="text-decoration: none">
+        <h1 class="name">CodeChef DYPIU Chapter</h1>
+      </a>
+      <h1 class="addevt">Add New Event</h1>
+      <form action="event_form" method="post">
+        {% csrf_token %}
+        <input
+          class="inputbox"
+          type="text"
+          name="title"
+          placeholder="Event Name"
+          required
+        />
+        <input
+          class="inputbox"
+          type="text"
+          name="description"
+          placeholder="Event Description"
+          required
+        />
+        <input
+          class="inputbox"
+          type="text"
+          name="start_date"
+          placeholder="Start Date"
+          required
+        />
+        <input
+          class="inputbox"
+          type="text"
+          name="end_date"
+          placeholder="End Date"
+          required
+        />
+        <input class="submitbtn" type="Submit" value="Add event" />
+      </form>        <br>
+
+
+      <center>
+        <div>
+          {% for message in messages %}
+          <h3>{{message}}</h3>
+          {% endfor %}
+        </div>
+      </center>
+
+      <div class="footer" style="margin-top: 250px">
+        <center style="line-height: 8px">
+          <p
+            style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              color: black;
+            "
+          >
+            Proudly made by Rajni ,Dhruv & Chandan
+          </p>
+          <p
+            style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              color: black;
+            "
+          >
+            ©CodeChef DYPIU 2021
+          </p>
+          <p
+            style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              color: black;
+            "
+          >
+            All rights reserved
+          </p>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

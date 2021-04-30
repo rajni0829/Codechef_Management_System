@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <!-- this link is for fonts-->
+  <link rel="stylesheet" href="{% static "plugin/register.css" %}">
+  <title>User Registration</title>
+</head>
+<body>
+  <div class="container">
+    <a href="{% url 'demo' %}" style="text-decoration: none;">
+      <h1 class="name">CodeChef DYPIU Chapter</h1>
+    </a>
+    <h1 class="registeryrslf">Register Yourself at CodeChef DYPIU Chapter!</h1>
+    <div class="registrationform">
+      <form action="register" method="post" class="regform">
+        {% csrf_token %}
+        <input class="inputbox" type="text" name="first_name" / placeholder="First name" required>
+        <input class="inputbox" type="text" name="last_name" placeholder="Last name" required />
+        <input class="inputbox" type="email" name="email" placeholder="Email" required />
+        <input class="inputbox" type="text" name="codechef_id" placeholder="CodeChef ID" required />
+        <input class="inputbox" type="text" name="username" placeholder="Username" required />
+        <input class="inputbox" type="text" name="prn" placeholder="PRN" required />
+        <input class="inputbox" type="password" name="password1" placeholder="Password" required />
+        <input class="inputbox" type="password" name="password2" placeholder="Confirm Password" required />
+        <input class="submitbtn" type="Submit" value="Register"/>
+      </form>
+    </div>
+        <br>
+
+    <center><div>
+      {% for message in messages %} 
+      <h3> {{message}} </h3>
+      {% endfor %}
+    </div></center>
+    <div class="footer" style="margin-top: 250px;">
+      <center style="line-height: 8px;">
+        <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">Proudly made by Rajni ,Dhruv & Chandan
+        </p>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">©CodeChef DYPIU 2021</p>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">All rights reserved</p>
+      </center>
+    </div>
+  </div>
+  
+</body>
+
+</html>
