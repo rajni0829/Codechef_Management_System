@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static "plugin/events.css" %}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Events</title>
+</head>
+<body>
+    <div class="container">
+      <a href="{% url 'demo' %}" style="text-decoration: none;">
+        <h1 class="name">CodeChef DYPIU Chapter</h1>
+      </a>
+        <h2 class="upevts">Upcoming Events</h2>
+        <div>
+          {% if user.is_authenticated %}
+            <h2 class="hellouser">Hello, {{user.first_name}}!</h2>
+            <a class="usrlog" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+            <a class="reg" href="{% url 'register' %}">Register</a>
+            <a class="log" href="{% url 'login'  %}">Login</a>
+          {% endif %}
+        </div>
+        
+        {% if user.is_superuser %}
+        <center>
+          <div class="editbuttons">
+            <a class="editbutton" href="event_form"> Add Events </a>
+            <a class="editbutton" href="event_del"> Delete Event </a>
+            <a class="editbutton" href="executive_register"> Add Executives </a>
+            <a class="editbutton" href="executive_del"> Delete Executives </a>
+            <a class="editbutton" href="participants_del"> Delete Participants </a>
+          </div>
+        </center>
+        
+           
+        {% endif %}
+
+        {% if user.is_staff %}
+            <a href="event_form"> Add Events </a>
+            <a class="example" href="event_del"> Delete Event </a>
+            <a class="example" href="participants_del">Delete Participants </a>
+              
+        {% endif %}
+      
+        <table class="eventtable">
+          <tr style="padding: 10px;">
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Event Title</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Event Description</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Start Date</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">End Date</th>
+          </tr>
+          {% if eve %} 
+            {% for e in eve %}
+                <tr style="padding: 10px;">
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.title }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.description }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.start_date }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.end_date }}</td>
+                </tr>
+            {% endfor %} 
+          {% endif %}
+        </table>
+
+        <div class="footer" style="margin-top: 250px;">
+          <center style="line-height: 8px;">
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">Proudly made by Rajni ,Dhruv & Chandan
+            </p>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">©CodeChef DYPIU 2021</p>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 14px; color: black;">All rights reserved</p>
+          </center>
+        </div>
+    </div>
+</body>
+</html>
