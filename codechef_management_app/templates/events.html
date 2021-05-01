@@ -26,74 +26,40 @@
         </div>
         
         {% if user.is_superuser %}
-            <div>
-              <button>
-                <a href="event_form"> Add Events </a>
-              </button>
-            </div>
-
-            <div>
-              <button>
-                <a class="example" href="event_del"> Delete Event </a>
-              </button>
-            </div>
-
-            <div>
-            
-              <button>
-                <a href="executive_register"> Add Executives </a>
-              </button>
-            </div>
-                    
-            <div>
-              <button>
-                <a class="example" href="executive_del"> Delete Executives </a>
-              </button>
-            </div>
+        <center>
+          <div class="editbuttons">
+            <a class="editbutton" href="event_form"> Add Events </a>
+            <a class="editbutton" href="event_del"> Delete Event </a>
+            <a class="editbutton" href="executive_register"> Add Executives </a>
+            <a class="editbutton" href="executive_del"> Delete Executives </a>
+            <a class="editbutton" href="participants_del"> Delete Participants </a>
+          </div>
+        </center>
         
-            <div>
-              <button>
-                <a class="example" href="participants_del"> Delete Participants </a>
-              </button>
-            </div>
-
+           
         {% endif %}
 
         {% if user.is_staff %}
-            <div>
-              <button>
-                <a href="event_form"> Add Events </a>
-              </button>
-            </div>
-        
-            <div>
-              <button>
-                <a class="example" href="event_del"> Delete Event </a>
-              </button>
-            </div>
-        
-        
-            <div>
-              <button>
-                <a class="example" href="participants_del"> Delete Participants </a>
-              </button>
-            </div>
+            <a href="event_form"> Add Events </a>
+            <a class="example" href="event_del"> Delete Event </a>
+            <a class="example" href="participants_del">Delete Participants </a>
+              
         {% endif %}
-        
+      
         <table class="eventtable">
           <tr style="padding: 10px;">
-            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100;">Event Title</th>
-            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100;">Event Description</th>
-            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100;">Start Date</th>
-            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100;">End Date</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Event Title</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Event Description</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">Start Date</th>
+            <th style="padding: 35px; font-family: Roboto, sans-serif; font-size: 18px; font-weight: 100; text-align: center;">End Date</th>
           </tr>
           {% if eve %} 
             {% for e in eve %}
                 <tr style="padding: 10px;">
-                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px;">{{ e.title }}</td>
-                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px;">{{ e.description}}</td>
-                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px;">{{ e.start_date}}</td>
-                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px;">{{ e.end_date}}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.title }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.description }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.start_date }}</td>
+                  <td style="padding: 10px; font-family: Roboto, sans-serif; font-size: 16px; text-align: center;">{{ e.end_date }}</td>
                 </tr>
             {% endfor %} 
           {% endif %}
